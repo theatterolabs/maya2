@@ -144,6 +144,7 @@ z-index:10000;
 }
 
 .code {
+	
   margin-top: 0px;
   position: relative;
   float: left;
@@ -159,8 +160,8 @@ z-index:10000;
 }
 
 
-
 .tele {
+	
   position: relative;
   display: inline-block;
   float: left;
@@ -173,7 +174,6 @@ z-index:10000;
   font-weight: 400;
   color: grey;
   
-  
 }
 
 .tele:active {
@@ -185,6 +185,7 @@ z-index:10000;
 }
 
 .demo {
+	
   position: relative;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: inline-block;
@@ -198,31 +199,36 @@ z-index:10000;
   padding: 5px 15px;
   left: 50%;
   transform: translate(-50%, 0%);
+	
 }
 
 
-
 .demo.blue {
+	
   color: white;
   border: 1px solid #1070de;
   background: -webkit-linear-gradient(top, #4092f1, #1a7cee);
   letter-spacing: 0.07em;
+	
 }
 
 .demo.blue:hover {
+	
   background: -webkit-linear-gradient(top, #4092f1, #106dda);
+	
 }
 
 .demo.blue:active {
+	
   box-shadow: inset 0 1px 2px #0e5fbd;
   background: -webkit-linear-gradient(top, #106dda, #106dda);
   border: 1px solid #0e5fbd;
+	
 }
 
 
-
-
 .otpnum {
+	
   position: relative;
   display:block;
   height: 24px;
@@ -235,6 +241,7 @@ z-index:10000;
   font-weight: 400;
   color: grey;
   text-align: center;
+	
 }
 
 .ok {
@@ -246,16 +253,62 @@ z-index:10000;
   margin-right: auto;
   
 }
+	  
+	  
+.resendotp {
+	
+  background: transparent;
+  border: none;
+  margin: 10px auto 0;
+  display: block;
+  font-size: 12px;
+  color: #106dda;
+  font-weight: 600;
+  outline: none;
+  position: relative;
+  padding: 10px;
+	
+}
+
+.resendotp:active {
+	
+  background: transparent;
+  border: none;
+  margin: 10px auto 0;
+  display: block;
+  font-size: 12px;
+  color: #003d80;
+  font-weight: 600;
+  outline: none;
+  position: relative;
+  padding: 10px;
+	
+}
+
+//Incorrect OTP Text	  
+.plschk {
+	
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  margin: 15px 0px 0px 0px;
+   
+}	  
 
 
 /***************************** End Of OTP ********************************/
 	  
 	
-	  /* Facebook Login */
-	  #fbLogin {
-    position: relative;
-    text-align: center;
-padding-top: 2%;
+/************************** Facebook Login *******************************/
+	  
+#fbLogin {
+	
+    	position: relative;
+    	text-align: center;
+	padding-top: 2%;
     
 }
 
@@ -350,7 +403,9 @@ padding-top: 2%;
       transform: translate(-50%, -50%);
     }
   </style>
-  <!-- MIXED PANEL -->
+	
+  <!-- ********************************************** MIX PANEL *****************************************-->
+	
   <script type="text/javascript">
     (function (f, b) {
       if (!b.__SV) {
@@ -396,6 +451,7 @@ padding-top: 2%;
         js.src = 'https://connect.facebook.net/en_US/sdk.js'
         fjs.parentNode.insertBefore(js, fjs)
       })(document, 'script', 'facebook-jssdk')
+	  
   </script>
 
  
@@ -404,7 +460,7 @@ padding-top: 2%;
 </head>
 
 <body>
- <!-- FBLOGIN -->
+	
   <script>
 	  
 function postScore() { FB.login(function(response) {
@@ -435,107 +491,95 @@ function postScore() { FB.login(function(response) {
 	  
 
 function sendOTP() {
-//var phoneValue = document.getElementById("tele").value;
-//var phoneurl='https://b2bapi.zee5.com/device/sendotp.php?phoneno=+91';
-window.phoneValue = document.getElementById("tele").value;
 
-window.phoneurl='https://b2bapi.zee5.com/device/sendotp.php?phoneno=+91';  
+	window.phoneValue = document.getElementById("tele").value;
 
-const sendurl = phoneurl + phoneValue;
+	window.phoneurl='https://b2bapi.zee5.com/device/sendotp.php?phoneno=+91';  
+
+	const sendurl = phoneurl + phoneValue;
   
-const Http = new XMLHttpRequest();
-Http.open("GET", sendurl);
-Http.send();
-signup.style.display = 'none';
-verify.style.display = 'block';
-mixpanel.track("CTAs", {        
-   "Element": "Submitted PhoneNum"
-  });  
+	const Http = new XMLHttpRequest();
+	Http.open("GET", sendurl);
+	Http.send();
+	
+	signup.style.display = 'none';
+	verify.style.display = 'block';
+	
+	
+	mixpanel.track("CTAs", {        
+   		"Element": "Submitted PhoneNum"
+  	});  
  
 
 }
 
 function verifyOTP() {
-//var otpurl='https://b2bapi.zee5.com/device/verifyotp.php?phoneno=+91';
-//var phoneValue = document.getElementById("tele").value;
-//var otpvalue = document.getElementById("otpnum").value; 
-  
-  window.otpvalue = document.getElementById("otpnum").value;
 
-window.otpurl='https://b2bapi.zee5.com/device/verifyotp.php?phoneno=+91'; 
-const sendotpurl = otpurl + phoneValue + '&otp=' + otpvalue;
- const Http = new XMLHttpRequest();
-Http.open("GET", sendotpurl);
-Http.send();
-verify.style.display = 'none'; 
-ok.style.display = 'block'; 
- mixpanel.track("Screen View", {
- "Page Name": "Verified PhoneNum"
- });
+	window.otpvalue = document.getElementById("otpnum").value;
 
+	window.otpurl='https://b2bapi.zee5.com/device/verifyotp.php?phoneno=+91';
+	
+	var sendotpurl = otpurl + phoneValue + '&otp=' + otpvalue;
+	
+	var req = new XMLHttpRequest();
+	req.overrideMimeType("application/json");
+	req.open('GET', sendotpurl, true);
+	
+	req.onload = function () {
+		var jsonResponse = req.responseText[2];
+		if (jsonResponse === "t") {
+      			verify.style.display = "none";
+      			ok.style.display = "block";
+			mixpanel.track("Screen View", {
+ 				"Page Name": "Verified PhoneNum"
+			});
+			
+    		} else {
+      			plschk.style.display = "block";
+    		}
+  	};
 
+  req.send();
 }
+	  
+	 
 
 $(function() {
 
-$('#closeotpwin').on('click', function() {
+	$('#closeotpwin').on('click', function() {
    
-const url = "https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore";
-fetch(url, {
-    method : "POST",
-    body : JSON.stringify({
-	    id : window.idd,
-	    firstname : window.firstnamed,
-	    lastname : window.lastnamed,
-	    score : window.scored,
-	    profilePic : window.profilePicd,
-	    email : window.emaild,
-	    phone : window.phoneValue      
-       })
-}).then(
-    response => response.text() // .json(), etc.
-    // same as function(response) {return response.text();}
-).then(
-    
-);
-document.getElementById('otp').style.display = 'none';
-mixpanel.track('Entered Leaderboard');	
-alert('Your Score Was Posted');	
-   
-});
+		const url = "https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore";
+		
+		fetch(url, {
+   			method : "POST",
+    			body : JSON.stringify({
+	    				id : window.idd,
+	    				firstname : window.firstnamed,
+	   				lastname : window.lastnamed,
+	    				score : window.scored,
+	    				profilePic : window.profilePicd,
+	    				email : window.emaild,
+	    				phone : window.phoneValue
+			})
+		}).then(
+			response => response.text()
+		).then();
+		
+		document.getElementById('otp').style.display = 'none';
+		mixpanel.track('Entered Leaderboard');	
+		alert('Your Score Was Posted');
+	});
 });
 
-
-
-  /*  function postScore() { FB.login(function(response) {
-    if (response.authResponse) {
-      FB.api('/me', {fields: 'email,last_name,picture,first_name'}, function (response) {
-            if (response.id) {
-                postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
-			"id": response.id,
-			"firstname": response.first_name,
-			"lastname": response.last_name,
-			"score": document.getElementById('setcheckfont').innerHTML,
-			"profilePic": response.picture.data.url,
-			"email": response.email,
-                }).then(data => {
-                    // JSON data parsed by `data.json()` call
-                }).catch(error => { console.log(error) })
-            }
-    
-            //document.getElementById('status').innerHTML = 'Your score was posted!';
-          
-             alert('Your Score Was Posted.');
-	      
-        });
-    } else {
-            alert('Please Login To Post Your Score');
-	    
-    }
-	    
-},{'scope':'email'});
-
-} */
+	  
+function resendotp() {
+  	
+	verify.style.display = 'none';
+	signup.style.display = 'block';
+	plschk.style.display = 'none';	
+  
+}
+ 
     
   </script>	
 
@@ -573,7 +617,7 @@ alert('Your Score Was Posted');
     </p>
   </div>
 
-	<!---- OTP --->
+<!---- ***************************** Begin OTP *************************************************--->
 	
 	<div id="otp" class="otp" style="display:none;">
   <div id="mobile" class="mobile">
@@ -599,6 +643,8 @@ alert('Your Score Was Posted');
       <input type="number" id="otpnum" class="otpnum" name="number" required placeholder="Enter OTP" maxlength="4" minlength="4">
 
       <button class="demo blue" id="verifyPhone" onclick="verifyOTP();">Verify</button>
+	<h1 class="plschk" id="plschk" style="display:none;">Incorrect OTP. Please Enter The Correct OTP.</h1>
+      <button class="resendotp" id="resendotp" onclick="resendotp();">Resend OTP</button>
     </div>
     <img class="ok" id="ok" src="https://cdn.jsdelivr.net/gh/theatterolabs/v58/Success.png" style="display:none;" alt="ok">
   </div>
