@@ -528,14 +528,14 @@ function verifyOTP() {
 	req.onload = function () {
 		var jsonResponse = req.responseText[2];
 		if (jsonResponse === "t") {
-      			verify.style.display = "none";
-      			ok.style.display = "block";
+      			document.getElementById('verify').style.display = 'none';
+      			document.getElementById('ok').style.display = 'block';
 			mixpanel.track("Screen View", {
  				"Page Name": "Verified PhoneNum"
 			});
 			
     		} else {
-      			plschk.style.display = "block";
+      			document.getElementById('plschk').style.display = 'block';
     		}
   	};
 
@@ -574,9 +574,9 @@ $(function() {
 	  
 function resendotp() {
   	
-	verify.style.display = 'none';
-	signup.style.display = 'block';
-	plschk.style.display = 'none';	
+	document.getElementById('verify').style.display = 'none';
+	document.getElementById('signup').style.display = 'block';
+	document.getElementById('plschk').style.display = 'none';	
   
 }
  
